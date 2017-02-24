@@ -29,6 +29,46 @@
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="72dp"
+                android:paddingTop="56dp"
+                android:paddingRight="16dp">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/titleWrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:paddingBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/titleInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text"
+                        android:textSize="34sp"
+                        android:hint="Title"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/descriptionWrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:paddingBottom="16dp">
+
+                    <EditText
+                        android:id="@+id/descInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text"
+                        android:hint="Description"/>
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
@@ -41,6 +81,7 @@
         android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:src="@drawable/ic_check_black_24dp"
+        android:tint="@android:color/white"/>
 
 </android.support.design.widget.CoordinatorLayout>
