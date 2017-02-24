@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".ModifyActivity">
+    tools:context=".AddItem">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -32,37 +32,17 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_modify"
-        android:id="@+id/include" />
+    <include layout="@layout/content_add_item" />
 
-    <LinearLayout
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
-        android:orientation="horizontal">
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/fab_margin"
-            app:layout_anchor="@id/app_bar"
-            app:layout_anchorGravity="bottom|end"
-            android:src="@drawable/ic_delete_black_24dp"
-            android:tint="@android:color/white"
-            app:fabSize="mini" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabUpdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
-            app:layout_anchor="@id/app_bar"
-            app:layout_anchorGravity="bottom|end"
-            android:src="@drawable/ic_check_black_24dp"
-            android:tint="@android:color/white"
-            app:fabSize="mini" />
-    </LinearLayout>
+        android:src="@drawable/ic_check_black_24dp"
+        android:tint="@android:color/white"
+        android:onClick="onClickDone"/>
 
 </android.support.design.widget.CoordinatorLayout>

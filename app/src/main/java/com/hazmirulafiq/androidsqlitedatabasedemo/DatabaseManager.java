@@ -6,17 +6,11 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-/**
- * Created by IceMann on 24/2/2017.
- */
-
 public class DatabaseManager {
-    // Call instance below
     private DatabaseHelper dbHelper;
     private Context context;
     private SQLiteDatabase database;
 
-    // Create constructor
     public DatabaseManager(Context c) {
         this.context = c;
     }
@@ -33,26 +27,26 @@ public class DatabaseManager {
 
     public void insert(String title, String description) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(dbHelper._TITLE, title);
-        contentValues.put(dbHelper._DESCRIPTION, description);
+        contentValues.put(dbHelper.TITLE, title);
+        contentValues.put(dbHelper.DESC, description);
         database.insert(dbHelper.TABLE_NAME,null,contentValues);
     }
 
     public void update(int id, String title, String description) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(dbHelper._TITLE, title);
-        contentValues.put(dbHelper._DESCRIPTION, description);
-        database.update(dbHelper.TABLE_NAME, contentValues, dbHelper._ID + " = " + id, null);
+        contentValues.put(dbHelper.TITLE,title);
+        contentValues.put(dbHelper.DESC, description);
+        database.update(dbHelper.TABLE_NAME,contentValues,dbHelper._ID+ " = " + id,null);
     }
 
     public void delete(int id) {
-        database.delete(dbHelper.TABLE_NAME,dbHelper._ID + " = " + id, null);
+        database.execSQL("DELETE FROM "+dbHelper.TABLE_NAME+" WHERE " +dbHelper._ID+"='"+id+"'");
     }
 
     public Cursor fetch() {
-        String[] columns = new String[] {dbHelper._ID, dbHelper._TITLE, dbHelper._DESCRIPTION};
-        Cursor cursor = database.query(dbHelper.TABLE_NAME,columns,null, null, null, null, null);
-        if (cursor != null){
+        String[] columns = new String[] {dbHelper._ID,dbHelper.TITLE,dbHelper.DESC};
+        Cursor cursor = database.query(dbHelper.TABLE_NAME,columns,null,null,null,null,null);
+        if (cursor != null) {
             cursor.moveToFirst();
         }
         return cursor;

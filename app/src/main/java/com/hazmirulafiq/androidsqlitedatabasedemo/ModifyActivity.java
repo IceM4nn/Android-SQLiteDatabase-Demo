@@ -3,7 +3,6 @@ package com.hazmirulafiq.androidsqlitedatabasedemo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -45,25 +44,28 @@ public class ModifyActivity extends AppCompatActivity {
 
         FloatingActionButton fabDelete = (FloatingActionButton) findViewById(R.id.fabDelete);
         FloatingActionButton fabUpdate = (FloatingActionButton) findViewById(R.id.fabUpdate);
+        fabDelete.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dbManager.delete(Integer.parseInt(myID));
+                        setItemDeleted(true);
+                        returnHome();
+                    }
+                }
+        );
+        fabUpdate.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String newTitle = modTitle.getText().toString();
+                        String newDesc = modDesc.getText().toString();
+                        dbManager.update(Integer.parseInt(myID),newTitle,newDesc);
+                        returnHome();
+                    }
+                }
+        );
 
-        fabDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dbManager.delete(Integer.parseInt(myID));
-                setItemDeleted(true);
-                returnHome();
-            }
-        });
-
-        fabUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String newTitle = modTitle.getText().toString();
-                String newDesc = modDesc.getText().toString();
-                dbManager.update(Integer.parseInt(myID),newTitle,newDesc);
-                returnHome();
-            }
-        });
     }
 
     public void returnHome() {

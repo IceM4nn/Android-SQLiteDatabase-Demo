@@ -5,30 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ModifyActivity"
-    tools:showIn="@layout/activity_modify">
+    tools:context=".AddItem"
+    tools:showIn="@layout/activity_add_item">
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Title"
         android:ems="10"
-        android:id="@+id/modTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp" />
+        android:layout_marginTop="49dp"
+        android:id="@+id/inputItem"
+        android:hint="Enter title here"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Description"
         android:ems="10"
-        android:layout_marginTop="28dp"
-        android:id="@+id/modDesc"
-        android:layout_below="@+id/modTitle"
-        android:layout_alignLeft="@+id/modTitle"
-        android:layout_alignStart="@+id/modTitle" />
-
+        android:layout_below="@+id/inputItem"
+        android:layout_alignRight="@+id/inputItem"
+        android:layout_alignEnd="@+id/inputItem"
+        android:layout_marginTop="31dp"
+        android:id="@+id/inputDesc"
+        android:hint="Enter description here"/>
 </RelativeLayout>
