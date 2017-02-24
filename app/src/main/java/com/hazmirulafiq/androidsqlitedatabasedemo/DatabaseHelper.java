@@ -14,12 +14,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "ToDo.db";
     // Initialize Database Version
     private static final int DATABASE_VERSION = 1;
-    // Initialize Table Name
-    private static final String TABLE_NAME = "ToDoList";
-    // Initialize Table Column
-    private static final String _ID = "_Id";
-    private static final String _TITLE = "_Title";
-    private static final String _DESCRIPTION = "_Description";
+    // Initialize Table Name (Don't give it private as we want to access it from another class)
+    static final String TABLE_NAME = "ToDoList";
+    // Initialize Table Column (Don't give it private as we want to access it from another class)
+    static final String _ID = "_Id";
+    static final String _TITLE = "_Title";
+    static final String _DESCRIPTION = "_Description";
 
     // Create table query (in this query, I don't make the ID to autoincrement as it will cause the id
     // value to keep increment even when the table row is empty, and I don't want that to happen)
