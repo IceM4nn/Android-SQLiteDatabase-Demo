@@ -1,25 +1,22 @@
 package com.hazmirulafiq.androidsqlitedatabasedemo;
 
+/**
+ * Created by IceMann on 23/2/2017.
+ */
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by IceMann on 21/2/2017.
- */
-
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    // Database Information
+    // Initialize Database Information
     private static final String DB_NAME = "ToDO.db";
-
-    // database version
+    // Initialize Database version
     private static final int DB_VERSION = 1;
-
-    // Table Name
+    // Initialize Table Name
     static final String TABLE_NAME = "ToDoList";
-
-    // Table from
+    // Initialize Table from(Columns)
     static final String _ID = "_id";
     static final String TITLE = "Title";
     static final String DESC = "Description";

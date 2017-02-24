@@ -1,5 +1,9 @@
 package com.hazmirulafiq.androidsqlitedatabasedemo;
 
+/**
+ * Created by IceMann on 23/2/2017.
+ */
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -29,23 +33,23 @@ public class DatabaseManager {
         ContentValues contentValues = new ContentValues();
         contentValues.put(dbHelper.TITLE, title);
         contentValues.put(dbHelper.DESC, description);
-        database.insert(dbHelper.TABLE_NAME,null,contentValues);
+        database.insert(dbHelper.TABLE_NAME, null, contentValues);
     }
 
     public void update(int id, String title, String description) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(dbHelper.TITLE,title);
+        contentValues.put(dbHelper.TITLE, title);
         contentValues.put(dbHelper.DESC, description);
-        database.update(dbHelper.TABLE_NAME,contentValues,dbHelper._ID+ " = " + id,null);
+        database.update(dbHelper.TABLE_NAME, contentValues, dbHelper._ID + " = " + id, null);
     }
 
     public void delete(int id) {
-        database.execSQL("DELETE FROM "+dbHelper.TABLE_NAME+" WHERE " +dbHelper._ID+"='"+id+"'");
+        database.execSQL("DELETE FROM " + dbHelper.TABLE_NAME + " WHERE " + dbHelper._ID + "='" + id + "'");
     }
 
     public Cursor fetch() {
-        String[] columns = new String[] {dbHelper._ID,dbHelper.TITLE,dbHelper.DESC};
-        Cursor cursor = database.query(dbHelper.TABLE_NAME,columns,null,null,null,null,null);
+        String[] columns = new String[]{dbHelper._ID, dbHelper.TITLE, dbHelper.DESC};
+        Cursor cursor = database.query(dbHelper.TABLE_NAME, columns, null, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }

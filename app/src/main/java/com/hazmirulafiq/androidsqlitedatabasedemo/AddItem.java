@@ -1,5 +1,9 @@
 package com.hazmirulafiq.androidsqlitedatabasedemo;
 
+/**
+ * Created by IceMann on 23/2/2017.
+ */
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -34,7 +38,7 @@ public class AddItem extends AppCompatActivity {
         String myInputTitle = inputTitle.getText().toString();
         String myInputDesc = inputDesc.getText().toString();
         if (myInputTitle.isEmpty() || myInputDesc.isEmpty()) {
-            Snackbar.make(view,"Please fill in both form!",Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(view, "Please fill in both form!", Snackbar.LENGTH_SHORT).show();
         } else {
             dbManager.insert(myInputTitle, myInputDesc);
             Intent intent = new Intent(AddItem.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

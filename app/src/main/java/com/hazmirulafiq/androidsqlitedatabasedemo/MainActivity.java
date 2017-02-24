@@ -1,5 +1,9 @@
 package com.hazmirulafiq.androidsqlitedatabasedemo;
 
+/**
+ * Created by IceMann on 23/2/2017.
+ */
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -22,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseHelper dbHelper;
 
     final String[] from = new String[]{dbHelper._ID, dbHelper.TITLE, dbHelper.DESC};
-    final int[] to = new int[]{R.id.id,R.id.listTitle,R.id.listDesc};
+    final int[] to = new int[]{R.id.id, R.id.listTitle, R.id.listDesc};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.myListView);
 
-        adapter = new SimpleCursorAdapter(this,R.layout.adapter,cursor, from, to,0);
+        adapter = new SimpleCursorAdapter(this, R.layout.adapter, cursor, from, to, 0);
         listView.setAdapter(adapter);
 
 
@@ -45,12 +49,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = getIntent();
             Boolean ItemDeleted = intent.getExtras().getBoolean("ItemDeleted");
             ModifyActivity modifyActivity = new ModifyActivity();
-            if (ItemDeleted){
-                Snackbar.make(listView,"ItemDeleted!", Snackbar.LENGTH_LONG).show();
+            if (ItemDeleted) {
+                Snackbar.make(listView, "ItemDeleted!", Snackbar.LENGTH_LONG).show();
                 modifyActivity.setItemDeleted(false);
             }
-        } catch (Exception e){
-            if (adapter.isEmpty()){
+        } catch (Exception e) {
+            if (adapter.isEmpty()) {
                 Snackbar.make(listView, "Click on fab to add list", Snackbar.LENGTH_LONG).show();
             } else {
                 Snackbar.make(listView, "Hold on item to modify", Snackbar.LENGTH_LONG).show();
@@ -70,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 String myTitle = itemTitle.getText().toString();
                 String myDesc = itemDesc.getText().toString();
 
-                Intent intent = new Intent(getApplicationContext(),ModifyActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ModifyActivity.class);
                 intent.putExtra("Id", myId);
                 intent.putExtra("Title", myTitle);
                 intent.putExtra("Desc", myDesc);
@@ -82,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickAddItem(View view) {
-        Intent intent = new Intent(getApplicationContext(),AddItem.class);
+        Intent intent = new Intent(getApplicationContext(), AddItem.class);
         startActivity(intent);
     }
 

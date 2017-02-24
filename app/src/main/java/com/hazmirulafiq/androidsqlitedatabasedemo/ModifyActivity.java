@@ -1,5 +1,9 @@
 package com.hazmirulafiq.androidsqlitedatabasedemo;
 
+/**
+ * Created by IceMann on 23/2/2017.
+ */
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -60,17 +64,16 @@ public class ModifyActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         String newTitle = modTitle.getText().toString();
                         String newDesc = modDesc.getText().toString();
-                        dbManager.update(Integer.parseInt(myID),newTitle,newDesc);
+                        dbManager.update(Integer.parseInt(myID), newTitle, newDesc);
                         returnHome();
                     }
                 }
         );
-
     }
 
     public void returnHome() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        if (isItemDeleted){
+        if (isItemDeleted) {
             intent.putExtra("ItemDeleted", true);
         }
         startActivity(intent);
