@@ -44,7 +44,7 @@ public class DatabaseManager {
     }
 
     public void delete(int id) {
-        database.execSQL("DELETE FROM " + dbHelper.TABLE_NAME + " WHERE " + dbHelper._ID + "='" + id + "'");
+        database.delete(dbHelper.TABLE_NAME,dbHelper._ID + " ='" + id + "'",null);
     }
 
     public Cursor fetch() {
